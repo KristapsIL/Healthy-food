@@ -23,4 +23,8 @@ class FoodController extends Controller
         return redirect("/");
 
     }
+    public function delete($id){
+        Food::destroy($id);
+        return redirect("/");
+    }
 }
