@@ -5,7 +5,7 @@
             <h2><a href="show/{{$food->id}}">{{$food->name}}</a></h2>
             <p>{{$food->description}}</p>
             <p>{{$food->recipe}}</p>
-            <form method="POST" action="delete/{{$food->id}}">
+            <form method="POST" action="/delete/{{$food->id}}">
                 @csrf
                 @method('delete')
                 <button>Delete</button>

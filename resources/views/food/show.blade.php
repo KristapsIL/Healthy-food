@@ -6,7 +6,7 @@
             <form action="/edit/{{$food->id}}">
                 <button>Edit</button>
             </form>
-            <form method="POST" action="delete/{{$food->id}}">
+            <form method="POST" action="/delete/{{$food->id}}">
                 @csrf
                 @method('delete')
                 <button>Delete</button>
