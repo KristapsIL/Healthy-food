@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 class FoodController extends Controller
 {   
     public function index(){
+        $foods = Food::with('ratings')->get()->map(function ($food) {
+            $food->ratings = $food->ratings->avg('rating');
+            if ($food->ratings !== null) {
+                $food->ratings = round($food->average_rating, 1);
+            }
+            return $food;
+        });
         $foods = Food::all();
         return view("food.index", ["foods" => $foods]);
     }    
