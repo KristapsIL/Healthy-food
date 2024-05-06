@@ -9,5 +9,9 @@ class Food extends Model
 {
     use HasFactory;
     
-    public $fillable = ['name', 'description', 'recipe'];
+    public $fillable = ['name', 'description', 'recipe', 'rating'];
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
 }

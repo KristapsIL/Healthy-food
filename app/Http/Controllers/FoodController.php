@@ -6,11 +6,11 @@ use App\Models\Food;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
-{
+{   
     public function index(){
         $foods = Food::all();
         return view("food.index", ["foods" => $foods]);
-    }
+    }    
     public function show($id){
         $food = Food::find($id);
         return view("food.show", ["food" => $food]);
@@ -35,4 +35,5 @@ class FoodController extends Controller
         Food::destroy($id);
         return redirect("/");
     }
+
 }
