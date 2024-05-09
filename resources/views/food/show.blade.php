@@ -6,10 +6,14 @@
             <form action="/edit/{{$food->id}}">
                 <button>Edit</button>
             </form>
-            <form method="POST" action="/delete/{{$food->id}}">
-                @csrf
-                @method('delete')
-                <button>Delete</button>
-            </form>
+            @auth
+            @if(Auth::user()->id == $food->user_id || Auth::user()->usertype === 'admin')
+                <form method="POST" action="/delete/{{$food->id}}">
+                    @csrf
+                    @method('delete')
+                    <button>Delete</button>
+                </form>
+            @endif
+        @endauth
         </div>
 </x-layout>

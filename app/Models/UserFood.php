@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
-class Food extends Model
+class UserFood extends Model
 {
     use HasFactory;
-    
-    public $fillable = ['name', 'description', 'recipe', 'rating', 'user_id'];
+    public $fillable = ['name', 'description', 'recipe', 'user_id','approved'];
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -19,9 +17,4 @@ class Food extends Model
     {
         return $this->hasMany(Bookmark::class);
     }
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
-
 }

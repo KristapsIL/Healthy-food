@@ -44,6 +44,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
     public function bookmarks()
     {
         return $this->hasMany(Bookmark::class);
@@ -51,5 +55,9 @@ class User extends Authenticatable
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+    public function hasBookmarked($foodId)
+    {
+        return $this->bookmarks()->where('food_id', $foodId)->exists();
     }
 }

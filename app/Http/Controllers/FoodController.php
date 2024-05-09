@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {   
@@ -27,6 +28,7 @@ class FoodController extends Controller
     }
     public function store(Request $request){
         $data = $request->only(['name', 'description', 'recipe']);
+        $data['user_id'] = $request->user()->id;
         Food::create($data);
         return redirect("/");
     }
@@ -38,8 +40,12 @@ class FoodController extends Controller
         Food::find($id)->update($request->all());
         return redirect('/');
     }
-    public function delete($id){
-        Food::destroy($id);
+    public function delete(Request $request, $id){
+        $food = Food::find($id);
+        if (Auth::id() !== $food->user_id) {
+            return redirect('/')->with('error', 'You are not authorized to delete this recipe.');
+        }
+        else{Food::destroy($id);}
         return redirect("/");
     }
 

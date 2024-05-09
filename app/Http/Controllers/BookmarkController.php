@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class BookmarkController extends Controller
 {   
+
     public function index(Request $request)
     {
         $bookmarks = $request->user()->bookmarks()->with('food')->get();
@@ -25,10 +26,9 @@ class BookmarkController extends Controller
         return back();
     }
     public function destroy(Request $request, $id){
-        $bookmark = Bookmark::where('user_id', $request->user()->id)
-            ->where('food_id', $id)
-            ->first();
+        $bookmark = Bookmark::where('user_id', $request->user()->id)->where('food_id', $id)->first();
         $bookmark->delete();
         return back();
     }
+    
 }
