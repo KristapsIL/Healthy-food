@@ -1,4 +1,5 @@
 <x-layout title="home">
+    <div class="main" >
     <h1>Food page</h1>
     @foreach($foods as $food)
         <div>
