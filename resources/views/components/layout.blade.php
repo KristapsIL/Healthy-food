@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 </head>
 <body>
     <x-navbar></x-navbar>
     {{ $slot }}
     @auth
-        <script src="js/dropdown.js"></script>
+        <script src="/js/dropdown.js"></script>
     @endauth
     
 </body>

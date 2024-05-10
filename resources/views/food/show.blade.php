@@ -1,7 +1,7 @@
 <x-layout title="home">
     <div class="main">
         <div>
-            <h2><a href="show/{{$food->id}}">{{$food->name}}</a></h2>
+            <h2>{{$food->name}}</h2>
             <p>{{$food->description}}</p>
             <p>{{$food->recipe}}</p>
             <p>Average Rating: {{ ($food->ratings != null && $food->ratings->count() > 0) ? round($food->ratings->avg('rating'),1) : 'No ratings yet' }}</p>
