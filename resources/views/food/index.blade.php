@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
 <x-layout title="home">
+    <header class="bg-white shadow"><h1>Food page</h1></header>
     <div class="main" >
-    <h1>Food page</h1>
     @foreach($foods as $food)
-        <div>
+        <div class="recipe">
             <h2><a href="show/{{$food->id}}">{{$food->name}}</a></h2>
-            <p>{{$food->description}}</p>
-            <p>{{$food->recipe}}</p>
+            <div class="img"><img alt="img" src="{{$food->image}}"></div>
+            <p>{{$food->short_description}}</p>
             <p>Average Rating: {{ ($food->ratings != null && $food->ratings->count() > 0) ? round($food->ratings->avg('rating'),1) : 'No ratings yet' }}</p>
-            <form action="/foods/{{ $food->id }}/ratings" method="POST">
-                @csrf
-                <input type="number" name="rating" min="1" max="5">
-                <button type="submit">Rate</button>
-            </form>
             @auth
                 @if(Auth::user()->hasBookmarked($food->id))
                     <form action="/foods/{{ $food->id }}/bookmarks" method="POST">

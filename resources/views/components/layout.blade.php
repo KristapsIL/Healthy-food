@@ -13,6 +13,5 @@
     @auth
         <script src="/js/dropdown.js"></script>
     @endauth
-    
 </body>
 </html>
