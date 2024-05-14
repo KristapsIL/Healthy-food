@@ -11,6 +11,7 @@ Route::get("/", [FoodController::class, "home"]);
 Route::get("/show/{id}", [FoodController::class, "show"]);
 Route::get("/search", [FoodController::class, "search"]);
 Route::get("/foods", [FoodController::class, "index"]);
+Route::get("/about", [FoodController::class, "about"]);
 
 Route::get('/welcome', function () {
     return view('welcome');

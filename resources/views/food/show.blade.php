@@ -2,9 +2,20 @@
     <div class="main">
         <div>
             <h2>{{$food->name}}</h2>
-            <p>{{$food->description}}</p>
-            <p>{{$food->recipe}}</p>
-            <p>Average Rating: {{ ($food->ratings != null && $food->ratings->count() > 0) ? round($food->ratings->avg('rating'),1) : 'No ratings yet' }}</p>
+                <div class="img"><img alt="img" src="{{$food->image}}"></div>
+            <div>
+                <h3>Description</h3>
+                <p>{{$food->description}}</p>
+            </div>
+            <div>
+                <h3>Ingredients</h3>
+                <p>{{$food->ingredients}}</p>
+            </div>
+            <div>
+                <h3>Recipe</h3>
+                <p>{{$food->recipe}}</p>
+            </div>
+            <p>Rating: {{ ($food->ratings != null && $food->ratings->count() > 0) ? round($food->ratings->avg('rating'),1) : 'No ratings yet' }}</p>
             <form action="/foods/{{ $food->id }}/ratings" method="POST">
                 @csrf
                 <input type="number" name="rating" min="1" max="5">

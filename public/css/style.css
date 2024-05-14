@@ -9,6 +9,7 @@ html[data-togl="light"] {
     --col4:lightgreen;
     --col5:white;
     --img:url('/images/Dark.svg');
+    --menu:url('/images/menuforlight.svg');
 }
 
 /* Dark mode */
@@ -19,6 +20,7 @@ html[data-togl="dark"] {
     --col4:#7BC74D;
     --col5:rgb(34, 34, 34);
     --img:url('/images/Sun.svg');
+    --menu:url('/images/menufordark.svg');
 }
 
 body{
@@ -51,6 +53,9 @@ button{
     grid-template-columns: 1fr 1fr 1fr;
     justify-items:space-around;
     align-items:center;
+}
+.hamburger{
+    display: none;
 }
 .home{
     margin-left: 10px;
@@ -96,6 +101,7 @@ nav{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 15em;
+    font-size: large;
 }
 #theme-toggle{
     background-color: var(--col5); 
@@ -140,6 +146,9 @@ nav{
 .dropdown a:hover { 
     background: #ddd; 
 }
+.mobile-nav{
+    display: none;
+}
 .show { 
     display: block; 
 }
@@ -179,4 +188,32 @@ img{
     height: 100%;
     object-fit: cover;
 }
-
+@media (max-width:600px){
+    .hamburger{
+        display: block;
+        position: absolute;
+        top: 10px;
+        left:0;
+        width: 40px;
+        height: 35px;
+        cursor: pointer;
+        transition: 4s;
+    }
+    .buns{
+        background-image: var(--menu);
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+    }
+    .navbar,.nav-links,.auth-but ,.homelink{
+        display: none;
+    }
+    .loginsignup{
+        display: none;
+    }
+    .hamburger:checked + .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        display: block;
+    }
+}

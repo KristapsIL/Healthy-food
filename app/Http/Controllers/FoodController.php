@@ -56,5 +56,7 @@ class FoodController extends Controller
         $foods = Food::where('name', 'like', "%$search%")->get();
         return view("food.index", ["foods" => $foods]);
     }
-
+    public function about(){
+        return view("food.about");
+    }
 }

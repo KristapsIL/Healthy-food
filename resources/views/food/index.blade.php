@@ -1,5 +1,5 @@
 <x-layout title="home">
-    <header class="bg-white shadow"><h1>recipe</h1></header>
+    <header class="bg-white shadow"><h1>Recipes</h1></h1></header>
     <div class="main" >
     @foreach($foods as $food)
         <div class="recipe">
