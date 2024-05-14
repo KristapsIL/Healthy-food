@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {   
+    public function home(){
+        $foods = Food::all();
+        $top = $foods->sortByDesc('rating')->first();
+        return view("food.home", ["foods" => $foods, "top" => $top]);
+    }
     public function index(){
         $foods = Food::with('ratings')->get()->map(function ($food) {
-            $food->ratings = $food->ratings->avg('rating');
-            if ($food->ratings !== null) {
-                $food->ratings = round($food->average_rating, 1);
-            }
+            $food->rating = $food->ratings->avg('rating');
             return $food;
         });
         $foods = Food::all();
+        $top = $foods->sortByDesc('rating')->first();
         return view("food.index", ["foods" => $foods]);
     }    
     public function show($id){
@@ -47,6 +50,11 @@ class FoodController extends Controller
         }
         else{Food::destroy($id);}
         return redirect("/");
+    }
+    public function search(Request $request){
+        $search = $request->input('search');
+        $foods = Food::where('name', 'like', "%$search%")->get();
+        return view("food.index", ["foods" => $foods]);
     }
 
 }

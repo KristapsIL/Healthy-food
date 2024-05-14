@@ -5,26 +5,26 @@ html{
 html[data-togl="light"] {
     --col1:white;
     --col2:black;
-    --col3:light;
+    --col3:whitesmoke;
     --col4:lightgreen;
-    --col5:#c0b4b4;
+    --col5:white;
     --img:url('/images/Dark.svg');
 }
 
 /* Dark mode */
 html[data-togl="dark"] {
-    --col1:white;
+    --col1:#292b2f;
     --col2:white;
-    --col3:light;
-    --col4:#c0b4b4;
-    --col5:#c0b4b4;
-    --img:url('/images/sun.svg');
+    --col3:rgb(48, 47, 47);
+    --col4:#7BC74D;
+    --col5:rgb(34, 34, 34);
+    --img:url('/images/Sun.svg');
 }
 
 body{
     background-color: var(--col1);
-    color:var(--col3);
-    padding-top: 100px;
+    color:var(--col2);
+    padding-top: 120px;
     margin:0;
     font-family: 'Arial', Monospace;
     font-size: 135%;
@@ -34,22 +34,53 @@ body{
     justify-content: center;
 }
 a{
-    color: var(--col3);
+    color: var(--col2);
+}
+button{
+    color: var(--col2);
 }
 .navbar{
-    padding: 15px 0px;
+    background-color: var(--col3);
+    padding: 10px 0px;
     display: flex;
-    font-size: 150%;
+    font-size: 120%;
+    justify-content: space-around;
+}
+.topnav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items:space-around;
+    align-items:center;
+}
+.home{
+    margin-left: 10px;
+}
+.searchbar{
+    display: flex;
+    justify-content: center;
+}
+.search{
+    width: 80%;
+    padding: 10px;
+    color:var(--col2);
+    background-color: var(--col5);
+    border:var(--col2) solid 1px;   
+    border-radius: 10px;
+    margin: 10px;
+}
+.navbut{
+    display: flex;
     justify-content: space-around;
 }
 .nav-links{
     display: flex;
     justify-content: space-around;
     width: 50%;
+    font-size: 90%;
     align-items: center;
 }
 nav{
-    background-color: white;
+    background-color: var(--col5);
     position: fixed;
     top:0;
     width: 100vw;
@@ -58,7 +89,7 @@ nav{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .auth-but{
-    background-color: var(--col3); 
+    background-color: var(--col5); 
     border: none;
     padding: 20px;
     display: inline-block;
@@ -67,19 +98,17 @@ nav{
     border-radius: 15em;
 }
 #theme-toggle{
-    background-color: var(--col1); 
+    background-color: var(--col5); 
     background-image:var(--img) ;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
     border: none;
     padding: 20px;
     display: inline-block;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 100%;
-}
-.button-div{
-    display: flex;
-    align-items: center;
-    justify-content: right;
 }
 .dropdown { 
     position: relative;

@@ -7,9 +7,10 @@ use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", [FoodController::class, "index"]);
+Route::get("/", [FoodController::class, "home"]);
 Route::get("/show/{id}", [FoodController::class, "show"]);
-
+Route::get("/search", [FoodController::class, "search"]);
+Route::get("/foods", [FoodController::class, "index"]);
 
 Route::get('/welcome', function () {
     return view('welcome');

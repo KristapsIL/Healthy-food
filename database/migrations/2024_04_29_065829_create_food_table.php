@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('image');
             $table->text('description');
             $table->text('short_description');
+            $table->text('ingredients');
             $table->text('recipe');
             $table->unsignedBigInteger('user_id')->default('1');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

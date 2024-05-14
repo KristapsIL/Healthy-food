@@ -5,4 +5,4 @@ function toggleMode() {
     } else {
         html.dataset.togl = "light";
     }
-  }
+}

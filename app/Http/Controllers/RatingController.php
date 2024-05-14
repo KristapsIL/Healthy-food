@@ -24,8 +24,7 @@ class RatingController extends Controller
     public function update(Request $request, Food $food)
     {
         $rating = Rating::where('user_id', $request->user()->id)
-            ->where('food_id', $food->id)
-            ->first();
+            ->where('food_id', $food->id)->first();
         $rating->rating = $request->rating;
         $rating->save();
 
