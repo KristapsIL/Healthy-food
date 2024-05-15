@@ -9,15 +9,15 @@
             <p>Rating: {{ ($food->ratings != null && $food->ratings->count() > 0) ? round($food->ratings->avg('rating'),1) : 'No ratings yet' }}</p>
             @auth
                 @if(Auth::user()->hasBookmarked($food->id))
-                    <form action="/foods/{{ $food->id }}/bookmarks" method="POST">
+                    <form action="/foods/{{ $food->id }}/bookmarks" method="POST" class="form-book">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Remove Bookmark</button>
+                        <button class="bookmark" type="submit">Remove Bookmark</button>
                     </form>
                 @else
-                    <form action="/foods/{{ $food->id }}/bookmarks" method="POST">
+                    <form action="/foods/{{ $food->id }}/bookmarks" method="POST" class="form-book">
                         @csrf
-                        <button type="submit">Bookmark</button>
+                        <button class="bookmark" type="submit">Bookmark</button>
                     </form>
                 @endif
             @endauth

@@ -30,7 +30,7 @@ class FoodController extends Controller
         return view("food.create");
     }
     public function store(Request $request){
-        $data = $request->only(['name','image','short_description', 'description', 'recipe']);
+        $data = $request->only(['name','image','short_description', 'description','ingredients', 'recipe']);
         $data['user_id'] = $request->user()->id;
         Food::create($data);
         return redirect("/");

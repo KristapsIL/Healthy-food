@@ -10,7 +10,7 @@ class Food extends Model
 {
     use HasFactory;
     
-    public $fillable = ['name','image','short_description', 'description', 'recipe', 'rating', 'user_id'];
+    public $fillable = ['name','image','short_description', 'description','ingredients', 'recipe', 'rating', 'user_id'];
     public function user()
     {
         return $this->belongsTo(User::class);
