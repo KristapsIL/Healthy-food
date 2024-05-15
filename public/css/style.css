@@ -41,7 +41,7 @@ a{
 button{
     color: var(--col2);
 }
-.navbar{
+#navbar{
     background-color: var(--col3);
     padding: 10px 0px;
     display: flex;
@@ -54,11 +54,11 @@ button{
     justify-items:space-around;
     align-items:center;
 }
-.hamburger{
+#hamburger{
     display: none;
 }
-.home{
-    margin-left: 10px;
+.homelink{
+    margin-left: 5%;
 }
 .searchbar{
     display: flex;
@@ -77,7 +77,7 @@ button{
     display: flex;
     justify-content: space-around;
 }
-.nav-links{
+#nav-links{
     display: flex;
     justify-content: space-around;
     width: 50%;
@@ -93,7 +93,7 @@ nav{
     display: block;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.auth-but{
+.auth-but, #auth-but, .mobile-a{
     background-color: var(--col5); 
     border: none;
     padding: 20px;
@@ -146,7 +146,7 @@ nav{
 .dropdown a:hover { 
     background: #ddd; 
 }
-.mobile-nav{
+#mobile-nav{
     display: none;
 }
 .show { 
@@ -189,31 +189,49 @@ img{
     object-fit: cover;
 }
 @media (max-width:600px){
-    .hamburger{
+    #hamburger{
         display: block;
         position: absolute;
         top: 10px;
+        opacity: 0;
         left:0;
         width: 40px;
         height: 35px;
         cursor: pointer;
-        transition: 4s;
+
     }
-    .buns{
+    #mobile-nav{
+        flex-direction: column;
+    }
+    .mob-nav-links{
+        display: flex;
+        flex-direction: column;
+    }
+    #buns{
         background-image: var(--menu);
         background-size: cover;
         width: 50px;
         height: 50px;
     }
-    .navbar,.nav-links,.auth-but ,.homelink{
+    .auth-but ,.homelink, .dropdown{
         display: none;
     }
-    .loginsignup{
-        display: none;
+    #auth-but{
+        width: 100%;
+        height: 100%;
     }
-    .hamburger:checked + .mobile-nav {
-        display: flex;
-        flex-direction: column;
-        display: block;
+    .navbut{
+        justify-content: flex-end;
+    }
+    #navbar{
+        padding: 15px 0px;
+    }
+    #nav-links{
+        justify-items: center;
+        width: 100%;
+        align-items:center;
+    }
+    .mobile-a{
+        text-align: center;
     }
 }

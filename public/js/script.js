@@ -6,3 +6,30 @@ function toggleMode() {
         html.dataset.togl = "light";
     }
 }
+// Get a reference to the .mobile-nav element
+
+
+function hamburger() {
+    let mobilenav = document.getElementById("mobile-nav");
+    let authbutton = document.getElementById("auth-but");
+    let mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    mediaQuery.addListener(function(e) {
+        if (e.matches) {
+            mobilenav.style.display = "";
+        }
+    });
+    if (mobilenav.style.display == "none") {
+        mobilenav.style.display = "flex";
+    } else {
+        mobilenav.style.display = "none";
+    }
+    if(authbutton){
+        if(authbutton.style.display == "none"){
+            authbutton.style.display = "block";
+        }else{
+            authbutton.style.display = "none";
+        }
+    }
+
+}
