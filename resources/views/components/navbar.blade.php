@@ -6,7 +6,7 @@
                 <a href="/" class="homelink">Home</a>    
             </div>
         <form action="/search" method="get" class="searchbar">
-            <input class="search" name="search" type="text">
+            <input class="search" name="search" type="text" value="{{ session('search') ?? '' }}">
         </form>
         <div class="navbut">
             @if(!Auth::user())
