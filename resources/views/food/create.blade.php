@@ -1,25 +1,25 @@
 <x-layout title="Add recipe">
     <h1>Add a Recipe</h1>
-    <div class="add">
+    <div class="add-main">
         <form method="Post" action="store" class="add">
         @csrf
-            <label>Name
+            <label>The name of the recipe
                 <input name="name">
             </label>
-            <label>Image
+            <label>Images url from the web
                 <input name="image">
             </label>
-            <label>short_description
-                <input name="short_description">
+            <label>A short description of the recipe
+                <textarea type="text" name="short_description"></textarea>
             </label>
-            <label>description
-                <input name="description">
+            <label>The description of the recipe
+                <textarea type="text" name="description"></textarea>
             </label>
-            <label>Ingredients
-                <input name="ingredients">
+            <label>Ingredients for the recipe
+                <textarea type="text" name="ingredients"></textarea>
             </label>
-            <label>Recipe
-                <input name="recipe">
+            <label>The recipe
+                <textarea type="text" name="recipe"></textarea>
             </label>
             <button>Add</button>
         </form>

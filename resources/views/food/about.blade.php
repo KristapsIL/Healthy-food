@@ -2,11 +2,10 @@
     <header><h1>About me</h1></header>
     <div class="main" >
         <div class="about">
-            <h2>My name is John Doe</h2>
+            <h3>My name is Kristaps Imants Liepins</h2>
             <p>I am a web developer</p>
-            <p>Number:</p>
-            <p>My email:</p>
-            <p>I love to cook and share my recipes with the world</p>
+            <p>My email: ipb22.k.liepins@vtdt.edu.lv</p>
+            <p>I enjoy food</p>
         </div>
     </div>
 </x-layout>

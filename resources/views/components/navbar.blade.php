@@ -64,7 +64,7 @@
             <a class="mobile-a" href="/bookmarks">Bookmarks</a>
         @endif
         @auth
-        <form method="POST" action="{{ route('logout') }}">
+        <form class="m-form-logout" method="POST" action="{{ route('logout') }}">
             @csrf
             <x-dropdown-link :href="route('logout')"
                     onclick="event.preventDefault();

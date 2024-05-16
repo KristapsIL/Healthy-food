@@ -126,7 +126,7 @@ nav{
     border-radius: 20px;
     overflow:hidden;
     max-width: 100%;
-    background: #3498DB;
+    background: var(--col4);
     color: #fff; 
     margin:10px;
     padding: 15px; 
@@ -170,17 +170,21 @@ header{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .recipe{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 50%;
     margin: 20px 0px;
     padding: 10px;
     border-radius: 10px;
     background-color: var(--col4);
+}
+.recipe>h2>a:hover{
+    color: var(--col5);
 }
 h2{
     margin: 10px;
@@ -189,7 +193,7 @@ h2{
 p{
     margin:20px;
 }
-.edit-but, .delete-but,.bookmark,.rate-but{
+.edit-but, .delete-but,.bookmark,.rate-but, .add>button{
     background-color: var(--col3);
     border-radius: 20px;
     border:none;
@@ -235,6 +239,20 @@ p{
     width: 80%;
     border-radius: 10px;
 }
+.add-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    margin: 20px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--col4);
+
+}
 .add{
     display: flex;
     flex-direction: column;
@@ -242,8 +260,47 @@ p{
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 5px 10px;
+    margin: 20px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--col4);
 
+}
+.add>button{
+    width: 100%;
+    height: 5vh;
+    border-radius: 20px;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px;
+}
+.add>button:hover{
+    background-color: var(--col5);
+}
+
+.add>label>input, .add>label>textarea{
+    width: 100%;
+    height: 5vh;
+    border-radius: 20px;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px;
+}
+.add>label>textarea{
+    border-radius: 10px;
+}
+.add>label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 10vh;
+    margin:  5px 10px;
 }
 img{
     width: 100%;
@@ -320,5 +377,16 @@ img{
     }
     h3{
         font-size: 80%;
+    }
+    .recipe{
+        width: 90%;
+    }
+    .mobile-a{
+        text-align: center;
+    }
+    .m-form-logout{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
