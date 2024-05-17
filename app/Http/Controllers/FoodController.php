@@ -30,6 +30,14 @@ class FoodController extends Controller
         return view("food.create");
     }
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'ingredients' => 'required',
+            'recipe' => 'required'
+        ]);
         $data = $request->only(['name','image','short_description', 'description','ingredients', 'recipe']);
         $data['user_id'] = $request->user()->id;
         Food::create($data);
@@ -40,6 +48,14 @@ class FoodController extends Controller
         return view("food.edit", ["food" => $food]);
     }
     public function update(Request $request, $id){
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+            'short_description' => 'required',
+            'description' => 'required',
+            'ingredients' => 'required',
+            'recipe' => 'required'
+        ]);
         Food::find($id)->update($request->all());
         return redirect('/');
     }
